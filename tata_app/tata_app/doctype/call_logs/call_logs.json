@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-12-09 15:55:11.501641",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "id",
+  "call_id",
+  "service",
+  "date",
+  "time",
+  "call_duration",
+  "opportunity",
+  "customer",
+  "column_break_9",
+  "status",
+  "agent_name",
+  "agent_number",
+  "did_number",
+  "client_number",
+  "recording_url",
+  "lead"
+ ],
+ "fields": [
+  {
+   "fieldname": "id",
+   "fieldtype": "Data",
+   "label": "ID"
+  },
+  {
+   "fieldname": "call_id",
+   "fieldtype": "Data",
+   "label": "Call ID"
+  },
+  {
+   "fieldname": "service",
+   "fieldtype": "Data",
+   "label": "Service"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Data",
+   "label": "Time"
+  },
+  {
+   "fieldname": "call_duration",
+   "fieldtype": "Data",
+   "label": "Call Duration"
+  },
+  {
+   "fieldname": "opportunity",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nanswered\nmissed"
+  },
+  {
+   "fieldname": "agent_name",
+   "fieldtype": "Data",
+   "label": "Agent Name"
+  },
+  {
+   "fieldname": "agent_number",
+   "fieldtype": "Data",
+   "label": "Agent Number"
+  },
+  {
+   "fieldname": "did_number",
+   "fieldtype": "Data",
+   "label": "DID Number"
+  },
+  {
+   "fieldname": "client_number",
+   "fieldtype": "Data",
+   "label": "Client Number"
+  },
+  {
+   "fieldname": "recording_url",
+   "fieldtype": "Attach",
+   "label": "Recording URL"
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-12-09 15:57:28.328242",
+ "modified_by": "Administrator",
+ "module": "tata_app",
+ "name": "Call Logs",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
