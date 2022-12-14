@@ -164,4 +164,4 @@ def click_to_call(agent_number,destination_number):
 class Opportunity(TransactionBase, CRMNote):
 	def disable_lead(self):
 		if self.opportunity_from == "Lead":
-			frappe.db.set_value("Lead", self.party_name, {"disabled": 0, "docstatus": 0})
+			frappe.db.set_value("Lead", self.party_name, {"disabled": 0, "docstatus": 1})

@@ -109,9 +109,10 @@
    "options": "Lead"
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-09 15:57:28.328242",
+ "modified": "2022-12-13 17:48:09.422452",
  "modified_by": "Administrator",
  "module": "tata_app",
  "name": "Call Logs",

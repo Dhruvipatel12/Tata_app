@@ -96,10 +96,13 @@ frappe.ui.form.on('Customer', {
 			var agent_number = num	
 			frm.add_custom_button(__('Click-To-Call'), function(){
 				var phone=frm.doc.phone
+				// console.log(phone)
 				var whatsapp_no = frm.doc.whatsapp_no;
+				// console.log(whatsapp_no)
 				var phone_ext = frm.doc.phone_ext;
+				console.log(phone_ext)
 				var destination_number = frm.doc.mobile;
-				
+				console.log(destination_number)
 				if(destination_number==null){
 					var destination_number=""
 				}
@@ -147,15 +150,17 @@ frappe.ui.form.on('Customer', {
 		click_call(frm,no)
 	},
 	call1:function(frm){
-		var no =frm.doc.destination_number
+		var no =frm.doc.mobile
+		console.log(no)
 		click_call(frm,no)
 	},
 	call2:function(frm){
 		var no =frm.doc.whatsapp_no 
 		click_call(frm,no)
 	},
-	call4s:function(frm){
+	call4:function(frm){
 		var no =frm.doc.phone_ext
+		console.log(no)
 		click_call(frm,no)
 	},
 });
