@@ -29,7 +29,10 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Lead" : "public/js/todo.js" ,"Customer" : "public/js/todo.js"}
+# doctype_js = {"Lead" : "public/js/todo.js" ,"Customer" : "public/js/todo.js"}
+# doctype_js = {"Opportunity" : "public/js/todo.js"}
+doctype_js = {"Item" : "public/js/item.js", "Lead" : "public/js/lead_css.js", "Customer" : "public/js/customer_css.js", "Opportunity" : "public/js/todo.js"}
+# doctype_js = {"Customer" : "public/js/customer_css.js"}
 # doctype_js = {"doctype" : "public/js/doctype.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

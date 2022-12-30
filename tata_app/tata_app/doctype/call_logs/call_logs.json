@@ -13,7 +13,7 @@
   "date",
   "time",
   "call_duration",
-  "opportunity",
+  "opportunity1",
   "customer",
   "column_break_9",
   "status",
@@ -22,7 +22,9 @@
   "did_number",
   "client_number",
   "recording_url",
-  "lead"
+  "lead",
+  "section_break_17",
+  "opportunity_child"
  ],
  "fields": [
   {
@@ -54,12 +56,6 @@
    "fieldname": "call_duration",
    "fieldtype": "Data",
    "label": "Call Duration"
-  },
-  {
-   "fieldname": "opportunity",
-   "fieldtype": "Link",
-   "label": "Opportunity",
-   "options": "Opportunity"
   },
   {
    "fieldname": "customer",
@@ -107,12 +103,28 @@
    "fieldtype": "Link",
    "label": "Lead",
    "options": "Lead"
+  },
+  {
+   "fieldname": "opportunity_child",
+   "fieldtype": "Table",
+   "label": "Opportunity Child",
+   "options": "Child Call"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "opportunity1",
+   "fieldtype": "Link",
+   "label": "Opportunity",
+   "options": "Opportunity"
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-13 17:48:09.422452",
+ "modified": "2022-12-23 19:03:52.409987",
  "modified_by": "Administrator",
  "module": "tata_app",
  "name": "Call Logs",

@@ -1,37 +1,38 @@
-frappe.ui.form.on('Opportunity', {
-	onload(frm) {
-		console.log("hello")
-	    var element = document.querySelectorAll(".form-section")[7];
+frappe.ui.form.on('Customer', {
+
+	refresh(frm) {
+		var element = document.querySelectorAll(".form-section")[3];
 		element.classList.add("section-no");
-		// your code here
-		set_css(frm);
-         var user = frappe.session.user_email;
+		set_css(frm)
+		var user = frappe.session.user_email;
 
         frappe.call({
 			method: "user_number",
 			args: { 'user_number': user },
 		}).then(records => {
 			var num = records["message"];
-			console.log(num)
-			var agent_number = num	;
+			// alert(num)
+			var agent_number = num	
 			frm.add_custom_button(__('Click-To-Call'), function(){
-				var phone=frm.doc.phone;
-				var whatsapp_no = frm.doc.whatsapp;
+				var phone=frm.doc.phone
+				// console.log(phone)
+				var whatsapp_no = frm.doc.whatsapp_no;
+				// console.log(whatsapp_no)
 				var phone_ext = frm.doc.phone_ext;
-				var destination_number = frm.doc.contact_mobile;
-			
-				
+				console.log(phone_ext)
+				var destination_number = frm.doc.mobile;
+				console.log(destination_number)
 				if(destination_number==null){
-					var destination_number="";
+					var destination_number=""
 				}
 				if(phone_ext==null){
-					var phone_ext="";
+					var phone_ext=""
 				}
 				if(whatsapp_no==null){
-					var whatsapp_no="";
+					var whatsapp_no=""
 				}
 				if(phone==null){
-					var phone="";
+					var phone=""
 				}
 	
 					frappe.confirm(
@@ -51,7 +52,7 @@ frappe.ui.form.on('Opportunity', {
 								method:"tata_app.api.click_to_call", 
 								args: {'agent_number':agent_number,'destination_number':a1},
 								callback: function(r) {
-									alert("done")
+									// alert("done")
 								}
 							});
 						}	
@@ -62,28 +63,26 @@ frappe.ui.form.on('Opportunity', {
 	
 	
 		})  
-	
 	},
-	
 	call3:function(frm){
 		var no =frm.doc.phone
 		click_call(frm,no)
 	},
 	call1:function(frm){
-		var no =frm.doc.contact_mobile
+		var no =frm.doc.mobile
+		console.log(no)
 		click_call(frm,no)
 	},
 	call2:function(frm){
-		var no =frm.doc.whatsapp 
+		var no =frm.doc.whatsapp_no 
 		click_call(frm,no)
 	},
 	call4:function(frm){
 		var no =frm.doc.phone_ext
+		console.log(no)
 		click_call(frm,no)
 	},
 });
-
-
 
 function click_call(frm,no){
 	if(no==null)
@@ -138,6 +137,7 @@ function set_css(frm){
 	console.log("set_css")
     document.querySelectorAll("[data-fieldname = 'call4']")[1].style.backgroundColor = '#0275d8'
 	document.querySelectorAll("[data-fieldname = 'call4']")[1].style.color = '#fff'
+
 	// document.querySelectorAll("[data-fieldname='phone']")[1].style.marginRight ="10px"
 	
 	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8'
