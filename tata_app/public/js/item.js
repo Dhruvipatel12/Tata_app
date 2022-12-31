@@ -1,14 +1,17 @@
 frappe.ui.form.on('Item', {
-    after_save:function(frm){
+    before_save:function(frm){
 		var license1 = cur_frm.doc.license1
+		// change here 
+		// var vehicle_no=cur_frm.doc.license
 		var vehicle_no=cur_frm.doc.register_no
-		var name1=cur_frm.doc.name
+		
+		// var name1=cur_frm.doc.name
 		if (cur_frm.doc.rto_register=="Registered"){
 			console.log("Hello this is fetch data function")
 			if (license1 == null)
 			{
 				console.log("Hello Null ")
-				fetch_api(frm, vehicle_no, name1)
+				fetch_api(frm, vehicle_no)
 			}
 			else{
 				console.log("Hello Not Null")
@@ -19,15 +22,15 @@ frappe.ui.form.on('Item', {
 		}
 	},
 });
-function fetch_api(frm,vehicle_no, name1){
+function fetch_api(frm,vehicle_no){
 	console.log("Hello this fetch api function")
 	frappe.call({
 		method:"tata_app.api.fetch_api_rc", 
-		args: {'vehicle_no':vehicle_no, 'name1':name1},
+		args: {'vehicle_no':vehicle_no},
 		callback: function(r) {
 			if (r.message == 'error'){
 				console.log("Data Are Not Inserted Successfully !!")
-				// frappe.validated = false;
+				frappe.validated = false;
 				frappe.throw("Wrong Vehicle Number Please Check and Type Again....")
 			}
 			else{

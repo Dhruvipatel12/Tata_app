@@ -295,9 +295,9 @@ def click_to_call(agent_number,destination_number):
 	print(response.text)
 
 @frappe.whitelist()
-def fetch_api_rc(vehicle_no, name1):
-    print(vehicle_no)
-    print(name1)
+def fetch_api_rc(vehicle_no):
+    # print(vehicle_no)
+    # print(name1)
     url = "https://api.emptra.com/vehicleSearchLite2"
 
     payload = {
