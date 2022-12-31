@@ -61,7 +61,7 @@ function fetch_api(frm,vehicle_no){
 				var vehicle_weight=main[21] 
 				var seating_capacity=main[22]
 				var permanent_address=main[23]
-                var norms_type=main[24]
+				var norms_type=main[24]
 				cur_frm.doc.license1 = license
 				cur_frm.doc.registration_date = registration_date
 				cur_frm.doc.fuel_type = fuel_type
