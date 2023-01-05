@@ -1,11 +1,9 @@
 frappe.ui.form.on('Item', {
-    before_save:function(frm){
+    fetch_data:function(frm){
 		var license1 = cur_frm.doc.license1
 		// change here 
 		// var vehicle_no=cur_frm.doc.license
 		var vehicle_no=cur_frm.doc.register_no
-		
-		// var name1=cur_frm.doc.name
 		if (cur_frm.doc.rto_register=="Registered"){
 			console.log("Hello this is fetch data function")
 			if (license1 == null)
@@ -23,7 +21,7 @@ frappe.ui.form.on('Item', {
 	},
 });
 function fetch_api(frm,vehicle_no){
-	console.log("Hello this fetch api function")
+	// console.log("Hello this fetch api function")
 	frappe.call({
 		method:"tata_app.api.fetch_api_rc", 
 		args: {'vehicle_no':vehicle_no},
@@ -34,9 +32,29 @@ function fetch_api(frm,vehicle_no){
 				frappe.throw("Wrong Vehicle Number Please Check and Type Again....")
 			}
 			else{
-				// console.log(r['message'])
+				console.log(r['message'])
 				var main=r['message']
-				// console.log(main)
+				frappe.confirm (
+					"All Details Fetched Through API SETU" + "<br><br>"
+					+ "<label for='html'>"+ "License :- "+ main[0] + "</label><br>" 
+					+ "<label for='html'>"+ "Registration Date :- "+ main[1] + "</label><br>" 
+					+ "<label for='html'>"+ "Fuel Type :- "+ main[2] + "</label><br>" 
+					+ "<label for='html'>"+ "Vehicle Color :- "+ main[4] + "</label><br>" 
+					+ "<label for='html'>"+ "Full Chassis :- "+ main[5] + "</label><br>" 
+					+ "<label for='html'>"+ "Owner Name :- "+ main[6] + "</label><br>"  
+					+ "<label for='html'>"+ "Vehicle Class :- "+ main[8] + "</label><br>" 
+					+ "<label for='html'>"+ "Maker Model :- "+ main[9] + "</label><br>" 
+					+ "<label for='html'>"+ "Owner Count :- "+ main[10] + "</label><br>" 
+					+ "<label for='html'>"+ "Insurance Date :- "+ main[11] + "</label><br>" 
+					+ "<label for='html'>"+ "PUC :- "+ main[14] + "</label><br>" 
+					+ "<label for='html'>"+ "Fitness Date :- "+ main[15] + "</label><br>" 
+					+ "<label for='html'>"+ "Model :- "+ main[17] + "</label><br>" 
+					+ "<label for='html'>"+ "Manufacturing Date :- "+ main[19] + "</label><br>" 
+					+ "<label for='html'>"+ "Registration Authority :- "+ main[20] + "</label><br>" 
+					+ "<label for='html'>"+ "Vehicle Weight :- "+ main[21] + "</label><br>" 
+					+ "<label for='html'>"+ "Seating Capacity :- "+ main[22] + "</label><br>" 
+					+ "<label for='html'>"+ "Norms Type :- "+ main[24] + "</label><br>" ,
+				)
 				var license=main[0]
 				var registration_date=main[1]
 				var fuel_type=main[2] 
@@ -92,6 +110,7 @@ function fetch_api(frm,vehicle_no){
 								message: __("Data Are Inserted Successfully !!"),
 								indicator: 'green'
 							});
+				
 			}
 		}
 	});
