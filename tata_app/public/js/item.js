@@ -80,31 +80,32 @@ function fetch_api(frm,vehicle_no){
 				var seating_capacity=main[22]
 				var permanent_address=main[23]
 				var norms_type=main[24]
-				cur_frm.doc.license1 = license
-				cur_frm.doc.registration_date = registration_date
-				cur_frm.doc.fuel_type = fuel_type
-				cur_frm.doc.present_address = present_address
-				cur_frm.doc.vehicle_color = vehicle_color
-				cur_frm.doc.full_chassis  = full_chassis
-				cur_frm.doc.owner_name  = owner_name
-				cur_frm.doc.engine  = engine
-				cur_frm.doc.vehicle_class =  vehicle_class
-				cur_frm.doc.maker_model =  maker_model
-				cur_frm.doc.owner_count  = owner_count
-				cur_frm.doc.insurance_date  = insurance_date
-				cur_frm.doc.insurer_name  = insurer_name
-				cur_frm.doc.insurance_policy_no =  insurance_policy_no
-				cur_frm.doc.pollution = pollution 
-				cur_frm.doc.fitness_dt = fitness_dt
-				cur_frm.doc.is_blacklisted = is_blacklisted
-				cur_frm.doc.model = model
-				cur_frm.doc.financier_name =  financier_name
-				cur_frm.doc.manufacturing_date = manufacturing_date  
-				cur_frm.doc.registration_authority = registration_authority 
-				cur_frm.doc.vehicle_weight = vehicle_weight 
-				cur_frm.doc.seating_capacity = seating_capacity
-				cur_frm.doc.permanent_address = permanent_address
-				cur_frm.doc.norms_type = norms_type
+				frm.set_value("license1",license)
+				frm.set_value("registration_date",registration_date)
+				frm.set_value("fuel_type",fuel_type)
+				frm.set_value("present_address",present_address)
+
+				frm.set_value("full_chassis",full_chassis)
+				frm.set_value("owner_name",owner_name)
+				frm.set_value("engine",engine)
+				frm.set_value("vehicle_class",vehicle_class)
+				frm.set_value("maker_model",maker_model)
+				frm.set_value("owner_count",owner_count)
+				frm.set_value("insurance_date",insurance_date)
+				frm.set_value("insurer_name",insurer_name)
+				frm.set_value("insurance_policy_no",insurance_policy_no)
+				frm.set_value("pollution",pollution)
+				frm.set_value("fitness_dt",fitness_dt)
+				frm.set_value("is_blacklisted",is_blacklisted)
+
+				frm.set_value("model",model)
+				frm.set_value("financier_name",financier_name)
+				frm.set_value("manufacturing_date",manufacturing_date)
+				frm.set_value("registration_authority",registration_authority)
+				frm.set_value("vehicle_weight",vehicle_weight)
+				frm.set_value("seating_capacity",seating_capacity)
+				frm.set_value("permanent_address",permanent_address)
+				frm.set_value("norms_type",norms_type)
 				// cur_frm.save();
 				frappe.show_alert({
 								message: __("Data Are Inserted Successfully !!"),
