@@ -105,7 +105,7 @@ function fetch_api(frm,vehicle_no){
 				cur_frm.doc.seating_capacity = seating_capacity
 				cur_frm.doc.permanent_address = permanent_address
 				cur_frm.doc.norms_type = norms_type
-				cur_frm.save();
+				// cur_frm.save();
 				frappe.show_alert({
 								message: __("Data Are Inserted Successfully !!"),
 								indicator: 'green'
