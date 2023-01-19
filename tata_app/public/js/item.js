@@ -32,7 +32,7 @@ function fetch_api(frm,vehicle_no){
 				frappe.throw("Wrong Vehicle Number Please Check and Type Again....")
 			}
 			else{
-				console.log(r['message'])
+				// console.log(r['message'])
 				var main=r['message']
 				frappe.confirm (
 					"All Details Fetched Through API SETU" + "<br><br>"
