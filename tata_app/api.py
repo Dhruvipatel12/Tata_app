@@ -335,7 +335,6 @@ def fetch_api_rc(vehicle_no):
         insurance_policy_no=offical['result']['insurance_policy_no']
         pollution=offical['result']['pollution']
         fitness_dt_no_format=offical['result']['fitness_dt']
-        fitness_dt = fitness_dt_no_format[8:] + "-" + fitness_dt_no_format[5:7] + "-" + fitness_dt_no_format[:4]
         is_blacklisted=offical['result']['is_blacklisted']
         model=offical['result']['model']
         financier_name=offical['result']['financier_name']
@@ -347,8 +346,15 @@ def fetch_api_rc(vehicle_no):
         norms_type=offical['result']['norms_type']
         # print(name1)
         # print("insurance date",type(insurance_date))
+        # print(insurance_date)
+        # print("registration_date",type(registration_date))
+        # print(registration_date)
+        # print("fitness_dt",type(fitness_dt_no_format))
+        # print("fitness_dt",fitness_dt_no_format)
         # print("fitness_dt",type(fitness_dt))
-        return license, registration_date, fuel_type, present_address, vehicle_color, full_chassis, owner_name, engine, vehicle_class, maker_model, owner_count, insurance_date, insurer_name, insurance_policy_no, pollution, fitness_dt, is_blacklisted, model, financier_name, manufacturing_date, registration_authority, vehicle_weight, seating_capacity,permanent_address, norms_type
+        # print("fitness_dt",fitness_dt)
+        return license, registration_date, fuel_type, present_address, vehicle_color, full_chassis, owner_name, engine, vehicle_class, maker_model, owner_count, insurance_date, insurer_name, insurance_policy_no, pollution, fitness_dt_no_format, is_blacklisted, model, financier_name, manufacturing_date, registration_authority, vehicle_weight, seating_capacity,permanent_address, norms_type
+        
 
 class Opportunity(TransactionBase, CRMNote):
 	def disable_lead(self):

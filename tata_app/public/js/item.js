@@ -134,7 +134,7 @@ function fetch_api(frm,vehicle_no){
 				frm.set_value("fuel_type",fuel_type)
 				cur_frm.set_df_property("fuel_type", "read_only",1);
 
-				frm.set_value("vehicle_color",fuel_type)
+				frm.set_value("vehicle_color",vehicle_color)
 				cur_frm.set_df_property("vehicle_color", "read_only",1);
 				
 				frm.set_value("present_address",present_address)
@@ -171,7 +171,7 @@ function fetch_api(frm,vehicle_no){
 				cur_frm.set_df_property("pollution", "read_only",1);
 
 				frm.set_value("fitness_dt",fitness_dt)
-				// frm.set_value("date",fitness_dt)
+
 				cur_frm.set_df_property("fitness_dt", "read_only",1);
 
 				frm.set_value("is_blacklisted",is_blacklisted)
@@ -200,6 +200,8 @@ function fetch_api(frm,vehicle_no){
 
 				frm.set_value("norms_type",norms_type)
 				cur_frm.set_df_property("norms_type", "read_only",1);
+				// console.log(fitness_dt)
+				// alert(fitness_dt)
 				// cur_frm.save();
 				frappe.show_alert({
 								message: __("Data Are Inserted Successfully !!"),
