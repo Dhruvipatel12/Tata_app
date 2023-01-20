@@ -346,6 +346,8 @@ def fetch_api_rc(vehicle_no):
         permanent_address=offical['result']['permanent_address']
         norms_type=offical['result']['norms_type']
         # print(name1)
+        # print("insurance date",type(insurance_date))
+        # print("fitness_dt",type(fitness_dt))
         return license, registration_date, fuel_type, present_address, vehicle_color, full_chassis, owner_name, engine, vehicle_class, maker_model, owner_count, insurance_date, insurer_name, insurance_policy_no, pollution, fitness_dt, is_blacklisted, model, financier_name, manufacturing_date, registration_authority, vehicle_weight, seating_capacity,permanent_address, norms_type
 
 class Opportunity(TransactionBase, CRMNote):

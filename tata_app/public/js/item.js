@@ -171,6 +171,7 @@ function fetch_api(frm,vehicle_no){
 				cur_frm.set_df_property("pollution", "read_only",1);
 
 				frm.set_value("fitness_dt",fitness_dt)
+				// frm.set_value("date",fitness_dt)
 				cur_frm.set_df_property("fitness_dt", "read_only",1);
 
 				frm.set_value("is_blacklisted",is_blacklisted)
