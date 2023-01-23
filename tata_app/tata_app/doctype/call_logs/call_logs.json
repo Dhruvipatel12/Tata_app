@@ -23,8 +23,10 @@
   "client_number",
   "recording_url",
   "lead",
+  "supplier",
   "section_break_17",
-  "opportunity_child"
+  "opportunity_child",
+  "item_child"
  ],
  "fields": [
   {
@@ -119,12 +121,24 @@
    "fieldtype": "Link",
    "label": "Opportunity",
    "options": "Opportunity"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "item_child",
+   "fieldtype": "Table",
+   "label": "Item Child",
+   "options": "Supp Child"
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-23 19:03:52.409987",
+ "modified": "2023-01-23 12:01:53.578345",
  "modified_by": "Administrator",
  "module": "tata_app",
  "name": "Call Logs",
