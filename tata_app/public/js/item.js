@@ -31,7 +31,7 @@ frappe.ui.form.on('Item', {
 				   frm.add_custom_button(__('Click-To-Call'), function(){
 			   
 					   var agent_number = num
-					   alert(agent_number)
+					//    alert(agent_number)
 					   var a1=frm.doc.supplier_number
    
 						   frappe.confirm(

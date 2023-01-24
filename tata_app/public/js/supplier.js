@@ -11,7 +11,7 @@ frappe.ui.form.on('Supplier', {
                     frm.add_custom_button(__('Click-To-Call'), function(){
                 
                         var agent_number = num
-                        alert(agent_number)
+                        // alert(agent_number)
                         var a1=frm.doc.phone_no
     
                             frappe.confirm(
