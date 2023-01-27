@@ -1,8 +1,8 @@
 frappe.ui.form.on('Supplier', {
     refresh(frm) {
-        // var element = document.querySelectorAll(".form-section")[2];
-		// element.classList.add("section-no");
-		// set_css(frm);
+        var element = document.querySelectorAll(".form-section")[2];
+		element.classList.add("section-no");
+		set_css(frm);
         if(frappe.user.has_role("Vendor") != true){
             var user = frappe.session.user_email;
                 frappe.call({
@@ -71,22 +71,22 @@ frappe.ui.form.on('Supplier', {
         },
     })
 
-// function set_css(frm){
+function set_css(frm){
 // 	console.log("set_css");
-// 	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8';
-// 	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.marginTop = '27px';
-// 	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.color = '#fff';
+	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8';
+	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.marginTop = '09px';
+	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.color = '#fff';
 	
-// 	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.backgroundColor = '#0275d8';
-// 	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.marginTop = '27px';
-// 	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.color = '#fff';
+	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.backgroundColor = '#0275d8';
+	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.marginTop = '09px';
+	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.color = '#fff';
 	
-// 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.backgroundColor = '#0275d8';
-// 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.marginTop = '27px';
-// 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.color = '#fff';
+	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.backgroundColor = '#0275d8';
+	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.marginTop = '09px';
+	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.color = '#fff';
 
 // 	console.log("hello end css");
-// }
+}
 
 function click_call(frm,no){
         if(no==null)
