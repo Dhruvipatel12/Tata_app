@@ -15,6 +15,7 @@
   "call_duration",
   "opportunity1",
   "customer",
+  "customer_name",
   "column_break_9",
   "status",
   "agent_name",
@@ -23,10 +24,11 @@
   "client_number",
   "recording_url",
   "lead",
+  "lead_name",
   "supplier",
+  "supplier_name",
   "section_break_17",
-  "opportunity_child",
-  "item_child"
+  "opportunity_child"
  ],
  "fields": [
   {
@@ -129,16 +131,31 @@
    "options": "Supplier"
   },
   {
-   "fieldname": "item_child",
-   "fieldtype": "Table",
-   "label": "Item Child",
-   "options": "Supp Child"
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lead.lead_name",
+   "fieldname": "lead_name",
+   "fieldtype": "Data",
+   "label": "Lead Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-23 12:01:53.578345",
+ "modified": "2023-01-27 12:00:43.265012",
  "modified_by": "Administrator",
  "module": "tata_app",
  "name": "Call Logs",

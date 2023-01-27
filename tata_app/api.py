@@ -3,21 +3,24 @@ import requests
 import json
 from erpnext.utilities.transaction_base import TransactionBase
 from erpnext.crm.utils import (
-	CRMNote,
+    CRMNote,
 )
+
+
 def non_match_elements(list_a, list_b):
     non_match = []
     for i in list_a:
-        ia=i['id']
+        ia = i['id']
         if ia not in list_b:
             non_match.append(i)
     return non_match
 
 def match_cl_no_supplier(cl_no1):
     i1=cl_no1[3:]
+    print(i1)
     # print("hello this is function to match the cl_no")
     print("This is Supplier Capturing Process")
-    b=frappe.db.sql(f"""select name from `tabSupplier` where mobile_number='{i1}';""",as_list=True)
+    b=frappe.db.sql(f"""select name from `tabSupplier` where whatsapp_no='{i1}' or phone_no='{i1}' or mobile_number='{i1}';""",as_list=True)
     # this is to check whether we have Lead or no? 
     # return b
     if len(b)>0:
@@ -29,74 +32,90 @@ def match_cl_no_supplier(cl_no1):
         return
 
 def match_cl_no_cus(cl_no1):
-    i1=cl_no1[3:]
+    i1 = cl_no1[3:]
     # print("hello this is function to match the cl_no")
     print("This is Customer Capturing Process")
-    c=frappe.db.sql(f"""select name from `tabCustomer` where whatsapp_no='{i1}' or phone='{i1}' or mobile='{i1}' or phone_ext='{i1}'""",as_list=True)
-    # this is to check whether we have customer or no? 
-    if len(c)>0:
+    c = frappe.db.sql(
+        f"""select name from `tabCustomer` where whatsapp_no='{i1}' or phone='{i1}' or mobile='{i1}' or phone_ext='{i1}'""", as_list=True)
+    # this is to check whether we have customer or no?
+    if len(c) > 0:
         print("This is Customer Opportunity Capturing Process")
-        oc=frappe.db.sql(f"""select name from `tabOpportunity` where opportunity_from='Customer' and whatsapp = '{i1}';""",as_list=True)
-        if oc==[]:
-            ac=(c[0][0])
+        oc = frappe.db.sql(
+            f"""select name from `tabOpportunity` where opportunity_from='Customer' and whatsapp = '{i1}';""", as_list=True)
+        if oc == []:
+            ac = (c[0][0])
             return ac
-        olc=[]
+        olc = []
         for i in oc:
-            oi=(i[0])
+            oi = (i[0])
             olc.append(oi)
-        oc1=(oc[0][0])
-        ac=(c[0][0])
-        return ac, oc1, olc          
+        oc1 = (oc[0][0])
+        ac = (c[0][0])
+        return ac, oc1, olc
     else:
         print("None")
         return
 
+
 def match_cl_no(cl_no1):
-    i1=cl_no1[3:]
+    i1 = cl_no1[3:]
     # print("hello this is function to match the cl_no")
     print("This is lead Capturing Process")
-    b=frappe.db.sql(f"""select name from `tabLead` where whatsapp_no='{i1}' or phone='{i1}' or mobile_no='{i1}' or phone_ext='{i1}';""",as_list=True)
-    # this is to check whether we have Lead or no? 
-    if len(b)>0:
+    b = frappe.db.sql(
+        f"""select name from `tabLead` where whatsapp_no='{i1}' or phone='{i1}' or mobile_no='{i1}' or phone_ext='{i1}';""", as_list=True)
+    # this is to check whether we have Lead or no?
+    if len(b) > 0:
         print("This is Lead Opportunity Capturing Process")
-        o=frappe.db.sql(f"""select name from `tabOpportunity` where whatsapp='{i1}' or phone='{i1}' or contact_mobile='{i1}' or phone_ext='{i1}';""",as_list=True)
-        if o==[]:
-            a=(b[0][0])
+        o = frappe.db.sql(
+            f"""select name from `tabOpportunity` where whatsapp='{i1}' or phone='{i1}' or contact_mobile='{i1}' or phone_ext='{i1}';""", as_list=True)
+        if o == []:
+            a = (b[0][0])
             return a
-        ol=[]
+        ol = []
         for i in o:
-            oi=(i[0])
+            oi = (i[0])
             ol.append(oi)
-        o1=(o[0][0])
-        a=(b[0][0])
-        return a, o1, ol            
+        o1 = (o[0][0])
+        a = (b[0][0])
+        return a, o1, ol
     else:
         print("None")
         return
 
 # working model
+
+
 def Convert(result):
     res_dct = {result[i]: result[i + 1] for i in range(0, len(result), 2)}
     return res_dct
 
-# this  are four icons as per call 
-def call_miss_outgoing_icon(a,b):
+# this  are four icons as per call
+
+
+def call_miss_outgoing_icon(a, b):
     content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b></div>"
     return content
-def call_ans_outgoing_icon(a,b,c,d):
-    content=f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
+
+
+def call_ans_outgoing_icon(a, b, c, d):
+    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
     return content
-def call_miss_incoming_icon(a,b):
+
+
+def call_miss_incoming_icon(a, b):
     content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b></div>"
     return content
-def call_ans_incoming_icon(a,b,c,d):
-    content=f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
+
+
+def call_ans_incoming_icon(a, b, c, d):
+    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
     return content
+
 
 def call_log():
     # this is simple code to bring the data from the tata database 
     # url = "https://api-smartflo.tatateleservices.com/v1/call/records?limit=90"
-    url = "https://api-smartflo.tatateleservices.com/v1/call/records?limit=5"
+    url = "https://api-smartflo.tatateleservices.com/v1/call/records?limit=10"
     headers = {
     "accept": "application/json",
     "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMxMjU2MiwiaXNzIjoiaHR0cHM6XC9cL2Nsb3VkcGhvbmUudGF0YXRlbGVzZXJ2aWNlcy5jb21cL3Rva2VuXC9nZW5lcmF0ZSIsImlhdCI6MTY2NTQwMDM4MiwiZXhwIjoxOTY1NDAwMzgyLCJuYmYiOjE2NjU0MDAzODIsImp0aSI6IlRLZGJLV2tuV1lNQmcxRXUifQ.ne6SKA5wm4P_L9zFzXnCxfxCb-IzNQ9C1h6hLkT0Ozk"
