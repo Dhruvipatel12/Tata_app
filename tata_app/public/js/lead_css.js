@@ -130,7 +130,7 @@ function connect_to_call(agent_number){
 }
 
 function set_css(frm){
-	console.log("set_css")
+	// console.log("set_css")
     document.querySelectorAll("[data-fieldname = 'call4']")[1].style.backgroundColor = '#0275d8'
 	document.querySelectorAll("[data-fieldname = 'call4']")[1].style.color = '#fff'
 
@@ -145,25 +145,25 @@ function set_css(frm){
 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.backgroundColor = '#0275d8'
 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.color = '#fff'
 
-	document.querySelectorAll(".section-no .frappe-control")[0].style.marginBottom = '-12px';
+	document.querySelectorAll(".section-no .frappe-control")[0].style.marginBottom = '-32px';
 	document.querySelectorAll(".section-no .frappe-control")[0].style.width = '75%';
 	document.querySelectorAll(".section-no .frappe-control")[1].style.display = 'flex';
 
-	document.querySelectorAll(".section-no .frappe-control")[2].style.marginBottom = '-12px';
+	document.querySelectorAll(".section-no .frappe-control")[2].style.marginBottom = '-32px';
 	document.querySelectorAll(".section-no .frappe-control")[2].style.width = '75%';
 	document.querySelectorAll(".section-no .frappe-control")[3].style.display = 'flex';
 
-	document.querySelectorAll(".section-no .frappe-control")[4].style.marginBottom = '-12px';
+	document.querySelectorAll(".section-no .frappe-control")[4].style.marginBottom = '-32px';
 	document.querySelectorAll(".section-no .frappe-control")[4].style.width = '75%';
 	document.querySelectorAll(".section-no .frappe-control")[5].style.display = 'flex';
 
-	document.querySelectorAll(".section-no .frappe-control")[6].style.marginBottom = '-12px';
+	document.querySelectorAll(".section-no .frappe-control")[6].style.marginBottom = '-32px';
 	document.querySelectorAll(".section-no .frappe-control")[6].style.width = '75%';
 	document.querySelectorAll(".section-no .frappe-control")[7].style.display = 'flex';
 
 
-	$(".section-no .control-input").css("width","70%")	
+	$(".section-no .control-input").css("width","80%")	
 	$(".section-no .control-input").css("float","left")	
-	$(".section-no .control-input").css("margin-right","10px")	
-	console.log("hello end css")
+	$(".section-no .control-input").css("margin-right","20px")	
+	// console.log("hello end css")
 }

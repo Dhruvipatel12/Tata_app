@@ -1,7 +1,7 @@
 frappe.ui.form.on('Supplier', {
     refresh(frm) {
-        var element = document.querySelectorAll(".form-section")[2];
-		element.classList.add("section-no");
+        var element = document.querySelectorAll(".form-section")[1];
+		element.classList.add("section-no1");
 		set_css(frm);
         if(frappe.user.has_role("Vendor") != true){
             var user = frappe.session.user_email;
@@ -73,16 +73,16 @@ frappe.ui.form.on('Supplier', {
 
 function set_css(frm){
 // 	console.log("set_css");
-	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8';
-	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.marginTop = '09px';
+    document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8';
+    document.querySelectorAll(".section-no1 .frappe-control")[1].style.marginTop = '10px';
 	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.color = '#fff';
 	
 	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.backgroundColor = '#0275d8';
-	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.marginTop = '09px';
+    document.querySelectorAll(".section-no1 .frappe-control")[3].style.marginTop = '10px';
 	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.color = '#fff';
 	
 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.backgroundColor = '#0275d8';
-	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.marginTop = '09px';
+    document.querySelectorAll(".section-no1 .frappe-control")[5].style.marginTop = '10px';
 	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.color = '#fff';
 
 // 	console.log("hello end css");
