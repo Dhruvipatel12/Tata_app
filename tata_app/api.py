@@ -115,7 +115,7 @@ def call_ans_incoming_icon(a, b, c, d):
 def call_log():
     # this is simple code to bring the data from the tata database 
     # url = "https://api-smartflo.tatateleservices.com/v1/call/records?limit=90"
-    url = "https://api-smartflo.tatateleservices.com/v1/call/records?limit=10"
+    url = "https://api-smartflo.tatateleservices.com/v1/call/records?limit=50"
     headers = {
     "accept": "application/json",
     "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMxMjU2MiwiaXNzIjoiaHR0cHM6XC9cL2Nsb3VkcGhvbmUudGF0YXRlbGVzZXJ2aWNlcy5jb21cL3Rva2VuXC9nZW5lcmF0ZSIsImlhdCI6MTY2NTQwMDM4MiwiZXhwIjoxOTY1NDAwMzgyLCJuYmYiOjE2NjU0MDAzODIsImp0aSI6IlRLZGJLV2tuV1lNQmcxRXUifQ.ne6SKA5wm4P_L9zFzXnCxfxCb-IzNQ9C1h6hLkT0Ozk"
@@ -185,7 +185,7 @@ def call_log():
     if len(non_match)>0:
         # print(len(non_match))
         print ("The lists a and c are not the same")
-        print("No match elements: ", non_match)
+        # print("No match elements: ", non_match)
         for i in non_match:
             print("This is client number fetch field")
             # print(i)
