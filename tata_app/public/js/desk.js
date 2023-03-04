@@ -6,7 +6,7 @@ document.onreadystatechange = function () {
         let user = frappe.session.user
         // alert(user)
         frappe.call({
-            method: "urja_app.api.login1", 
+            method: "tata_app.api.login1", 
             args:{
                 "user": user,
             }
