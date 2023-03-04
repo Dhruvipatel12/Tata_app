@@ -406,3 +406,11 @@ class Opportunity(TransactionBase, CRMNote):
 	def disable_lead(self):
 		if self.opportunity_from == "Lead":
 			frappe.db.set_value("Lead", self.party_name, {"disabled": 0, "docstatus": 1})
+                        
+
+@frappe.whitelist()
+def login1(user):
+    d=frappe.db.get_value('User',user,'role_profile_name')
+    d1=frappe.db.get_value('Supplier', filters={"email":user})
+    frappe.response["role"]=d
+    frappe.response["supplier"]=d1

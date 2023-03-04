@@ -13,6 +13,7 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/tata_app/css/tata_app.css"
 # app_include_js = "/assets/tata_app/js/tata_app.js"
+app_include_js = "/assets/tata_app/js/desk.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/tata_app/css/tata_app.css"
