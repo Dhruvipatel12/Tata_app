@@ -1,8 +1,8 @@
 // console.log("Hello This is Start of Desk file pls Consider it")
 document.onreadystatechange = function () {
     if (document.readyState == "complete") {
-        console.log("This is inner jQuery")
-        console.log("Hello This is event Listener")
+        // console.log("This is inner jQuery")
+        // console.log("Hello This is event Listener")
         let user = frappe.session.user
         // alert(user)
         frappe.call({
@@ -19,23 +19,24 @@ document.onreadystatechange = function () {
                     let report = document.createElement('a')
                     report.href="https://migoostage.frappe.cloud/app/query-report/Compliance%20Report"
                     report.innerText = "Compliance Report"
-                    report.style = "margin-left:5px; font-weight: 600;"
+                    $(report).html(`<i class = "fa fa-file-text-o"></i> Compliance Report`)
                     $(report).addClass("nav-link");
                     navbar.prepend(report)
                     
-                    let dashboard = document.createElement('a')
-                    dashboard.href="https://migoostage.frappe.cloud/app/dashboard-view/Equipment%20Dashboard"
-                    dashboard.innerText = "Dashboard"
-                    dashboard.style = "margin-left:5px; font-weight: 600;"
-                    $(dashboard).addClass("nav-link");
-                    navbar.prepend(dashboard)
-
                     let equipment = document.createElement('a')
                     equipment.href="https://migoostage.frappe.cloud/app/item"
                     equipment.innerText = "Equipment"
-                    equipment.style = "margin-left:5px; font-weight: 600;"
+                    $(equipment).html(`<i class = "fa fa-truck"></i> Equipments`)
                     $(equipment).addClass("nav-link");
                     navbar.prepend(equipment)
+
+                    let dashboard = document.createElement('a')
+                    dashboard.href="https://migoostage.frappe.cloud/app/dashboard-view/Equipment%20Dashboard"
+                    dashboard.innerText = "Dashboard"
+                    $(dashboard).html(`<i class = "fa fa-desktop"></i> Dashboard`)
+                    $(dashboard).addClass("nav-link");
+                    navbar.prepend(dashboard)
+
 
                     $('#navbar-breadcrumbs').removeClass('d-sm-flex');
                     $('.page-actions').remove();
