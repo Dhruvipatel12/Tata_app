@@ -1,8 +1,8 @@
 frappe.ui.form.on('Customer', {
 
 	refresh(frm) {
-		var element = document.querySelectorAll(".form-section")[3];
-		element.classList.add("section-no");
+	    var element = document.querySelectorAll(".form-section")[3];
+        element.setAttribute("id","section-no1");
 		set_css(frm)
 		var user = frappe.session.user_email;
 
@@ -84,6 +84,7 @@ frappe.ui.form.on('Customer', {
 	},
 });
 
+
 function click_call(frm,no){
 	if(no==null)
 	{
@@ -134,40 +135,26 @@ function connect_to_call(agent_number){
 }
 
 function set_css(frm){
-	// console.log("set_css")
-	document.querySelectorAll("[data-fieldname = 'call4']")[1].style.backgroundColor = '#0275d8'
-	document.querySelectorAll("[data-fieldname = 'call4']")[1].style.color = '#fff'
-
-	// document.querySelectorAll("[data-fieldname='phone']")[1].style.marginRight ="10px"
+	// 	console.log("set_css")
+		$("#section-no1 button").css("background","#0275d8")
+		$("#section-no1 button").css("color","#fff")
+		document.querySelectorAll("#section-no1 .frappe-control")[0].style.marginBottom = '-10px';
+		document.querySelectorAll("#section-no1 .frappe-control")[0].style.width = '75%';
+		document.querySelectorAll("#section-no1 .frappe-control")[1].style.display = 'flex';
 	
-	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8'
-	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.color = '#fff'
+		document.querySelectorAll("#section-no1 .frappe-control")[2].style.marginBottom = '-10px';
+		document.querySelectorAll("#section-no1 .frappe-control")[2].style.width = '75%';
+		document.querySelectorAll("#section-no1 .frappe-control")[3].style.display = 'flex';
 	
-	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.backgroundColor = '#0275d8'
-	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.color = '#fff'
+		document.querySelectorAll("#section-no1 .frappe-control")[4].style.marginBottom = '-10px';
+		document.querySelectorAll("#section-no1 .frappe-control")[4].style.width = '75%';
+		document.querySelectorAll("#section-no1 .frappe-control")[5].style.display = 'flex';
 	
-	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.backgroundColor = '#0275d8'
-	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.color = '#fff'
-
-	document.querySelectorAll(".section-no .frappe-control")[0].style.marginBottom = '-32px';
-	document.querySelectorAll(".section-no .frappe-control")[0].style.width = '75%';
-	document.querySelectorAll(".section-no .frappe-control")[1].style.display = 'flex';
-
-	document.querySelectorAll(".section-no .frappe-control")[2].style.marginBottom = '-32px';
-	document.querySelectorAll(".section-no .frappe-control")[2].style.width = '75%';
-	document.querySelectorAll(".section-no .frappe-control")[3].style.display = 'flex';
-
-	document.querySelectorAll(".section-no .frappe-control")[4].style.marginBottom = '-32px';
-	document.querySelectorAll(".section-no .frappe-control")[4].style.width = '75%';
-	document.querySelectorAll(".section-no .frappe-control")[5].style.display = 'flex';
-
-	document.querySelectorAll(".section-no .frappe-control")[6].style.marginBottom = '-32px';
-	document.querySelectorAll(".section-no .frappe-control")[6].style.width = '75%';
-	document.querySelectorAll(".section-no .frappe-control")[7].style.display = 'flex';
-
-
-	$(".section-no .control-input").css("width","80%")	
-	$(".section-no .control-input").css("float","left")	
-	$(".section-no .control-input").css("margin-right","20px")	
-	// console.log("hello end css")
+		document.querySelectorAll("#section-no1 .frappe-control")[6].style.marginBottom = '-10px';
+		document.querySelectorAll("#section-no1 .frappe-control")[6].style.width = '75%';
+		document.querySelectorAll("#section-no1 .frappe-control")[7].style.display = 'flex';
+		$("#section-no1 .control-input").css("width","80%")	
+		$("#section-no1 .control-input").css("float","left")	
+		$("#section-no1 .control-input").css("margin-right","20px")	
+	// 	console.log("hello end css")
 }

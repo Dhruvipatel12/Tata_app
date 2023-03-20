@@ -1,7 +1,10 @@
+
 frappe.ui.form.on('Supplier', {
     refresh(frm) {
-        var element = document.querySelectorAll(".form-section")[1];
-		element.classList.add("section-no1");
+        var element = document.querySelectorAll(".form-section")[2];
+        element.setAttribute("id","section-no1");
+        
+       
 		set_css(frm);
         if(frappe.user.has_role("Vendor") != true){
             var user = frappe.session.user_email;
@@ -32,7 +35,7 @@ frappe.ui.form.on('Supplier', {
                   
                             function(){
                                 var a1=document.querySelector('input[name="a"]:checked').value;
-                                    console.log(a1)
+                                    // console.log(a1)
                                     // alert(a1)
                                     if(a1==""){
                                         frappe.msgprint("you Don't Have Any Number so you can't connect call",'Error')
@@ -72,20 +75,11 @@ frappe.ui.form.on('Supplier', {
     })
 
 function set_css(frm){
-// 	console.log("set_css");
-    document.querySelectorAll("[data-fieldname = 'call1']")[1].style.backgroundColor = '#0275d8';
-    document.querySelectorAll(".section-no1 .frappe-control")[1].style.marginTop = '10px';
-	document.querySelectorAll("[data-fieldname = 'call1']")[1].style.color = '#fff';
-	
-	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.backgroundColor = '#0275d8';
-    document.querySelectorAll(".section-no1 .frappe-control")[3].style.marginTop = '10px';
-	document.querySelectorAll("[data-fieldname = 'call2']")[1].style.color = '#fff';
-	
-	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.backgroundColor = '#0275d8';
-    document.querySelectorAll(".section-no1 .frappe-control")[5].style.marginTop = '10px';
-	document.querySelectorAll("[data-fieldname = 'call3']")[1].style.color = '#fff';
-
-// 	console.log("hello end css");
+    $("#section-no1 button").css("background","#0275d8")
+    $("#section-no1 button").css("color","#fff")
+    document.querySelectorAll("#section-no1 .frappe-control")[1].style.marginTop = '30px';
+    document.querySelectorAll("#section-no1 .frappe-control")[3].style.marginTop = '30px';
+    document.querySelectorAll("#section-no1 .frappe-control")[5].style.marginTop = '30px';
 }
 
 function click_call(frm,no){

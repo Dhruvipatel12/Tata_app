@@ -92,22 +92,22 @@ def Convert(result):
 # this  are four icons as per call
 
 
-def call_miss_outgoing_icon(a, b):
+def call_miss_outgoing_icon(a, b,agent_name):
     content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b></div>"
     return content
 
 
-def call_ans_outgoing_icon(a, b, c, d):
+def call_ans_outgoing_icon(a, b, c, d, agent_name):
     content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
     return content
 
 
-def call_miss_incoming_icon(a, b):
+def call_miss_incoming_icon(a, b, agent_name):
     content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b></div>"
     return content
 
 
-def call_ans_incoming_icon(a, b, c, d):
+def call_ans_incoming_icon(a, b, c, d, agent_name):
     content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
     return content
 
@@ -193,6 +193,7 @@ def call_log():
             b=i['time']
             c=i['recording_url']
             d=i['call_duration']
+            agent_name=i['agent_name']
             cl_no1=i["client_number"]
             get_cust=match_cl_no_cus(cl_no1)
             get_lead=match_cl_no(cl_no1)
@@ -213,14 +214,14 @@ def call_log():
                         , "recording_url": i['recording_url'], "supplier": get_supp, "description": i['description'], "call_hint": i['call_hint'] })).insert()
                         if i['status']=="missed":
                             if i['call_hint']=="clicktocall":
-                                content=call_miss_outgoing_icon(a, b)
+                                content=call_miss_outgoing_icon(a, b, agent_name)
                             else:
-                                content=call_miss_incoming_icon(a, b)
+                                content=call_miss_incoming_icon(a, b, agent_name)
                         else:
                             if i['call_hint']=="clicktocall":
-                                content=call_ans_outgoing_icon(a, b, c, d)
+                                content=call_ans_outgoing_icon(a, b, c, d, agent_name)
                             else:
-                                content=call_ans_incoming_icon(a, b, c, d)
+                                content=call_ans_incoming_icon(a, b, c, d, agent_name)
                         activity = frappe.get_doc(
                                     {"doctype": "Comment", "comment_type": "Label","comment_email": "Administrator",
                                     "reference_doctype": "Supplier", "reference_name": get_supp,
@@ -236,14 +237,14 @@ def call_log():
                         , "recording_url": i['recording_url'], "lead": get_lead, "description": i['description'], "call_hint": i['call_hint'] })).insert()  
                         if i['status']=="missed":
                             if i['call_hint']=="clicktocall":
-                                content=call_miss_outgoing_icon(a, b)
+                                content=call_miss_outgoing_icon(a, b, agent_name)
                             else:
-                                content=call_miss_incoming_icon(a, b)
+                                content=call_miss_incoming_icon(a, b, agent_name)
                         else:
                             if i['call_hint']=="clicktocall":
-                                content=call_ans_outgoing_icon(a, b, c, d)
+                                content=call_ans_outgoing_icon(a, b, c, d, agent_name)
                             else:
-                                content=call_ans_incoming_icon(a, b, c, d)
+                                content=call_ans_incoming_icon(a, b, c, d, agent_name)
                         activity = frappe.get_doc(
                             {"doctype": "Comment", "comment_type": "Label","comment_email": "Administrator",
                             "reference_doctype": "Lead", "reference_name": get_lead,
@@ -256,14 +257,14 @@ def call_log():
                         , "recording_url": i['recording_url'], "lead": get_lead[0], "description": i['description'], "call_hint": i['call_hint'] }))
                         if i['status']=="missed":
                             if i['call_hint']=="clicktocall":
-                                content=call_miss_outgoing_icon(a, b)
+                                content=call_miss_outgoing_icon(a, b, agent_name)
                             else:
-                                content=call_miss_incoming_icon(a, b)
+                                content=call_miss_incoming_icon(a, b, agent_name)
                         else:
                             if i['call_hint']=="clicktocall":
-                                content=call_ans_outgoing_icon(a, b, c, d)
+                                content=call_ans_outgoing_icon(a, b, c, d, agent_name)
                             else:
-                                content=call_ans_incoming_icon(a, b, c, d)
+                                content=call_ans_incoming_icon(a, b, c, d, agent_name)
                         activity = frappe.get_doc(
                             {"doctype": "Comment", "comment_type": "Label","comment_email": "Administrator",
                             "reference_doctype": "Lead", "reference_name": get_lead[0],
@@ -286,14 +287,14 @@ def call_log():
                         , "recording_url": i['recording_url'], "customer": get_cust[0], "description": i['description'], "call_hint": i['call_hint'] }))
                         if i['status']=="missed":
                             if i['call_hint']=="clicktocall":
-                                content=call_miss_outgoing_icon(a, b)
+                                content=call_miss_outgoing_icon(a, b, agent_name)
                             else:
-                                content=call_miss_incoming_icon(a, b)
+                                content=call_miss_incoming_icon(a, b, agent_name)
                         else:
                             if i['call_hint']=="clicktocall":
-                                content=call_ans_outgoing_icon(a, b, c, d)
+                                content=call_ans_outgoing_icon(a, b, c, d, agent_name)
                             else:
-                                content=call_ans_incoming_icon(a, b, c, d)
+                                content=call_ans_incoming_icon(a, b, c, d, agent_name)
                         activity = frappe.get_doc(
                             {"doctype": "Comment", "comment_type": "Label","comment_email": "Administrator",
                             "reference_doctype": "Customer", "reference_name": get_cust[0],
@@ -316,14 +317,14 @@ def call_log():
                         , "recording_url": i['recording_url'], "customer": get_cust, "description": i['description'], "call_hint": i['call_hint'] })).insert()
                         if i['status']=="missed":
                             if i['call_hint']=="clicktocall":
-                                content=call_miss_outgoing_icon(a, b)
+                                content=call_miss_outgoing_icon(a, b, agent_name)
                             else:
-                                content=call_miss_incoming_icon(a, b)
+                                content=call_miss_incoming_icon(a, b, agent_name)
                         else:
                             if i['call_hint']=="clicktocall":
-                                content=call_ans_outgoing_icon(a, b, c, d)
+                                content=call_ans_outgoing_icon(a, b, c, d, agent_name)
                             else:
-                                content=call_ans_incoming_icon(a, b, c, d)
+                                content=call_ans_incoming_icon(a, b, c, d, agent_name)
                         activity = frappe.get_doc(
                             {"doctype": "Comment", "comment_type": "Label","comment_email": "Administrator",
                             "reference_doctype": "Customer", "reference_name": get_cust,
