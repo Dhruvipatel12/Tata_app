@@ -93,22 +93,22 @@ def Convert(result):
 
 
 def call_miss_outgoing_icon(a, b,agent_name):
-    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b></div>"
+    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b> &nbsp; <b>Agent_Name: {agent_name}</b></div>"
     return content
 
 
 def call_ans_outgoing_icon(a, b, c, d, agent_name):
-    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
+    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_made</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Agent_Name: {agent_name}</b> <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
     return content
 
 
 def call_miss_incoming_icon(a, b, agent_name):
-    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b></div>"
+    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='missed' style='color: red;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b}</b> &nbsp; <b>Agent_Name: {agent_name}</b></div>"
     return content
 
 
 def call_ans_incoming_icon(a, b, c, d, agent_name):
-    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
+    content = f"<link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'> <div><span class='material-symbols-outlined' id='answered' style='color: green;'>call_received</span>   &nbsp;<b>Date: {a} </b> &nbsp; <b>Time: {b} &nbsp; &nbsp; <b>Agent_Name: {agent_name}</b> <b>Call Duration: {d}Sec &nbsp; <b>Recording: <a href={c} style='color: blue;'>Click Here!!</a></b></div>"
     return content
 
 
